@@ -7,6 +7,9 @@
         if(empty($post['body'])){
             array_push($errors, 'Body is Required');
         }
+        if(empty($post['price'])){
+            array_push($errors, 'Price is Required');
+        }
         if(empty($post['topic_id'])){
             array_push($errors, 'Please select a topic');
         }

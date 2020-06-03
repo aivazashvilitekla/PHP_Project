@@ -10,6 +10,7 @@ $errors = array();
 $id = '';
 $title = '';
 $body = '';
+$price = '';
 $topic_id = '';
 $published = '';
 
@@ -18,6 +19,7 @@ if(isset($_GET['id'])){
     $id = $post['id'];
     $title = $post['title'];
     $body = $post['body'];
+    $price = $post['price'];
     $topic_id = $post['topic_id'];
     $published = $post['published'];
 }
@@ -59,9 +61,10 @@ if (isset($_POST['add-post'])) {
     }
 
     if (count($errors)==0)  {
-        unset($_POST['add-post'], $_POST['topic']);
+        unset( $_POST['topic'], $_POST['add-post']);
         $_POST['user_id'] = $_SESSION['id'];
         $_POST['published'] = isset($_POST['published']) ? 1 : 0;
+        $_POST['price'] = $_POST['price'];
         $_POST['body'] = htmlentities($_POST['body']);
     
         $post_id = create($table, $_POST);
@@ -71,7 +74,9 @@ if (isset($_POST['add-post'])) {
         exit();
     }else{
         $title = $_POST['title'];
+        $price = $_POST['price'];
         $body = $_POST['body'];
+        
         $topic_id = $_POST['topic_id'];
         $published = isset($_POST['published']) ? 1 : 0;
     }
@@ -101,6 +106,7 @@ if (isset($_POST['update-post'])){
         $_POST['user_id'] = $_SESSION['id'];
         $_POST['published'] = isset($_POST['published']) ? 1 : 0;
         $_POST['body'] = htmlentities($_POST['body']);
+        $_POST['price'] = $_POST['price'];
     
         $post_id = update($table, $id, $_POST);
         $_SESSION['message'] = "Post updated successfully";
@@ -109,6 +115,7 @@ if (isset($_POST['update-post'])){
     }else{
         $title = $_POST['title'];
         $body = $_POST['body'];
+        $price = $_POST['price'];
         $topic_id = $_POST['topic_id'];
         $published = isset($_POST['published']) ? 1 : 0;
     }

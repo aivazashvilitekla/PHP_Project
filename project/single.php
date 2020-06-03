@@ -26,7 +26,9 @@ $posts = selectAll('posts', ['published' => 1]);
         <div class="content clearfix">
 
             <div class="main-content single">
+                <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="post-image" width="30%" style="margin-left:300px">
                 <h1 class="post-title"><?php echo $post['title']; ?></h1>
+                <p style="margin-left:390px;color:green;font-weight:bold"><i class="fas fa-dollar-sign"></i><?php echo $post['price']; ?></p>
                 <div class="post-content">
                     <?php echo html_entity_decode($post['body']); ?>
                 </div>
@@ -39,6 +41,7 @@ $posts = selectAll('posts', ['published' => 1]);
                     <div class="post clearfix">
                         <img src="<?php echo BASE_URL . '/assets/images/' . $p['image']; ?>" alt="image">
                         <a href="" class="title"><h4><?php echo $p['title']; ?></h4></a>
+                        <p style="color:green;font-weight:bold"><i class="fas fa-dollar-sign"></i><?php echo $p['price']; ?></p>
                     </div>
                     <?php endforeach; ?>
                 </div>

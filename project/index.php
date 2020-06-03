@@ -24,7 +24,7 @@ if (isset($_GET['t_id'])) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Candal|Lora" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Blog</title>
+    <title>Project</title>
 </head>
 <body>
     <?php include(ROOT_PATH . "/app/includes/header.php"); ?>
@@ -44,7 +44,8 @@ if (isset($_GET['t_id'])) {
                             <h4><a href="single.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a></h4>
                             <i class="far fa-user"><?php echo $post['username']; ?></i>
                             &nbsp;
-                            <i class="far fa-calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
+                            <i class="far fa-calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i> <br><br>
+                            <i class="fas fa-dollar-sign" style="font-size:22px; color:green"><?php echo $post['price']; ?></i>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -62,6 +63,7 @@ if (isset($_GET['t_id'])) {
                             <i class="far fa-user"><?php echo $post['username']; ?></i>
                             &nbsp;
                             <i class="far calendar"><?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
+                            <i class="fas fa-dollar-sign" style="font-size:22px; color:green"><?php echo $post['price']; ?></i>
                             <p class="preview-text">
                             <?php echo html_entity_decode(substr($post['body'], 0, 150) . '...'); ?>
                             </p>

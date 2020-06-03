@@ -46,6 +46,10 @@
                         <input type="file" name="image" class="text-input">
                     </div>
                     <div>
+                        <label>Price</label>
+                        <input type="number" name="price" class="text-input" value="<?php echo $price; ?>">
+                    </div>
+                    <div>
                         <label>Topic</label>
                         <select name="topic_id" class="text-input">
                             <option value=""></option>
